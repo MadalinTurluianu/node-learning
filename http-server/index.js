@@ -15,7 +15,6 @@ const friends = [
 
 const server = http.createServer((req, res) => {
   const urlPath = req.url.split("/");
-  console.log(urlPath);
   if (urlPath.length === 3 && urlPath[1] === "friends") {
     res.statusCode = 200;
     res.setHeader("Content-type", "application/json");
