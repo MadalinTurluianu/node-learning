@@ -1,5 +1,5 @@
 {
-  "name": "planets-project",
+  "name": "node-learning",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,15 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MadalinTurluianu/planets-project.git"
+    "url": "git+https://github.com/MadalinTurluianu/node-learning.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MadalinTurluianu/planets-project/issues"
+    "url": "https://github.com/MadalinTurluianu/node-learning/issues"
   },
-  "homepage": "https://github.com/MadalinTurluianu/planets-project#readme",
-  "dependencies": {
-    "csv-parse": "^5.5.0"
-  }
+  "homepage": "https://github.com/MadalinTurluianu/node-learning#readme",
+  "dependencies": {}
 }
