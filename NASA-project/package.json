@@ -9,7 +9,8 @@
     "start": "npm run server & npm run client",
     "deps-server": "npm i --prefix server",
     "deps-client": "npm i --prefix client",
-    "deps": "npm run deps-server & npm run deps-client"
+    "deps": "npm run deps-server & npm run deps-client",
+    "build-client": "npm run build --prefix client"
   },
   "author": "",
   "license": "ISC"
