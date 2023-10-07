@@ -10,7 +10,8 @@
     "deps-server": "npm i --prefix server",
     "deps-client": "npm i --prefix client",
     "deps": "npm run deps-server & npm run deps-client",
-    "build-client": "npm run build --prefix client"
+    "build-client": "BUILD_PATH=../server/public npm run build --prefix client",
+    "deploy": "npm run deps && npm run build-client && npm start --prefix server"
   },
   "author": "",
   "license": "ISC"
