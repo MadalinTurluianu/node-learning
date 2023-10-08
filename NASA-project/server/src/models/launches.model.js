@@ -56,7 +56,7 @@ class Launch {
     const launch = this.launches.get(flightNumber);
     const deletedSuccessfully = this.launches.delete(flightNumber);
 
-    if (!deletedSuccessfully) return { error: deletedSuccessfully };
+    if (!deletedSuccessfully) return { error: !deletedSuccessfully };
     return launch;
   };
 }

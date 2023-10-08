@@ -37,14 +37,8 @@ async function httpSubmitLaunch(launchInfo) {
 
 async function httpAbortLaunch(id) {
   try {
-    return await fetch(`${API_URL}/launches`, {
+    return await fetch(`${API_URL}/launches/${id}`, {
       method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        flightNumber: id,
-      }),
     });
   } catch (err) {
     return {

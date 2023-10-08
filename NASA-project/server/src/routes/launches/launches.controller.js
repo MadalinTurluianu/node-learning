@@ -34,15 +34,8 @@ function postLaunch(req, res) {
 }
 
 function deleteLaunch(req, res) {
-  const flightNumber = req.body.flightNumber;
-
-  if (flightNumber == null) {
-    res.status(404).json({
-      error: "Flight number not provided",
-    });
-  }
-
-  const launch = Launch.deleteLaunch(flightNumber);
+  const flightNumber = req.params.id;
+  const launch = Launch.deleteLaunch(Number(flightNumber));
 
   if (launch.error) {
     res.status(404).json({
