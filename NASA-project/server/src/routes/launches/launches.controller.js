@@ -33,15 +33,22 @@ function postLaunch(req, res) {
   return;
 }
 
-function deleteLaunch(req, res) {
-  const flightNumber = req.params.id;
-  const launch = Launch.deleteLaunch(Number(flightNumber));
+function abortLaunch(req, res) {
+  const flightNumber = Number(req.params.id);
 
-  if (launch.error) {
+  if (isNaN(flightNumber)) {
+    res.status(400).json({
+      error: "Flight number not valid",
+    });
+  }
+
+  if (!Launch.launchExists(flightNumber)) {
     res.status(404).json({
       error: "Flight number not found",
     });
   }
+
+  const launch = Launch.abortLaunch(flightNumber);
 
   res.status(200).json(launch);
   return;
@@ -50,5 +57,5 @@ function deleteLaunch(req, res) {
 module.exports = {
   getAllLaunches,
   postLaunch,
-  deleteLaunch,
+  deleteLaunch: abortLaunch,
 };

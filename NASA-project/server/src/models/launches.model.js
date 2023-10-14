@@ -52,13 +52,16 @@ class Launch {
 
   static getAllLaunches = () => Array.from(this.launches.values());
 
-  static deleteLaunch = (flightNumber) => {
+  static abortLaunch = (flightNumber) => {
     const launch = this.launches.get(flightNumber);
-    const deletedSuccessfully = this.launches.delete(flightNumber);
+    launch.success = false;
+    launch.upcoming = false;
 
-    if (!deletedSuccessfully) return { error: !deletedSuccessfully };
     return launch;
   };
+
+  static launchExists = (flightNumber) =>
+    this.launches.get(flightNumber) != null;
 }
 
 Launch.addLaunch({
