@@ -1,1 +1,0 @@
-mongodb_pw = q1XQHP6nDV3ixp6N
