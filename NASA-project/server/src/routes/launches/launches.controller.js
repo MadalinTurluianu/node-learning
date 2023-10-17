@@ -1,7 +1,12 @@
-const { Launch } = require("../../models/launches.model");
+const {
+  getLaunch,
+  getLaunches,
+  saveLaunch,
+  deleteLaunch,
+} = require("../../models/launches.model");
 
 function getAllLaunches(req, res) {
-  res.status(200).json(Launch.getAllLaunches());
+  res.status(200).json(getLaunches());
   return;
 }
 
@@ -28,7 +33,7 @@ function postLaunch(req, res) {
     return;
   }
 
-  const launch = Launch.addLaunch({ ...launchInfo, launchDate });
+  const launch = saveLaunch({ ...launchInfo, launchDate });
   res.status(201).json(launch);
   return;
 }
@@ -42,13 +47,13 @@ function abortLaunch(req, res) {
     });
   }
 
-  if (!Launch.launchExists(flightNumber)) {
+  if (!launchExists(flightNumber)) {
     res.status(404).json({
       error: "Flight number not found",
     });
   }
 
-  const launch = Launch.abortLaunch(flightNumber);
+  const launch = deleteLaunch(flightNumber);
 
   res.status(200).json(launch);
   return;
@@ -57,5 +62,5 @@ function abortLaunch(req, res) {
 module.exports = {
   getAllLaunches,
   postLaunch,
-  deleteLaunch: abortLaunch,
+  abortLaunch,
 };
